@@ -25,13 +25,13 @@ sockets = Sockets(app)
 redis = redis.from_url(REDIS_URL)
 
 
-def init_db():
-    db = redis.StrictRedis(
-        host = 'ec2-54-158-0-180.compute-1.amazonaws.com',
-        port = 41669,
-        db = 0
-    )
-    return db
+# def init_db():
+#     db = redis.StrictRedis(
+#         host = 'ec2-54-158-0-180.compute-1.amazonaws.com',
+#         port = 41669,
+#         db = 0
+#     )
+#     return db
 
 
 class ChatBackend(object):
@@ -74,9 +74,9 @@ class ChatBackend(object):
 chats = ChatBackend()
 chats.start()
 
-@app.before_request
-def before_request():
-    g.db=init_db()
+# @app.before_request
+# def before_request():
+#     g.db=init_db()
 
 @app.route('/')
 def hello():
@@ -93,9 +93,9 @@ def inbox(ws):
         if message:
             app.logger.info(u'Inserting message: {}'.format(message))
             redis.publish(REDIS_CHAN, message)
-            message_id = str(g.db.incrby('next_message_id',1000))
-            g.db.hmset('message:'+message_id, message)
-            g.db.hset('messages', message,message_id)
+            # message_id = str(g.db.incrby('next_message_id',1000))
+            # g.db.hmset('message:'+message_id, message)
+            # g.db.hset('messages', message,message_id)
 
 @sockets.route('/receive')
 def outbox(ws):
