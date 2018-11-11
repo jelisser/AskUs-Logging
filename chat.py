@@ -28,7 +28,7 @@ redis = redis.from_url(REDIS_URL)
 def init_db():
     db = redis.StrictRedis(
         host = 'ec2-54-158-0-180.compute-1.amazonaws.com',
-        port = 41649,
+        port = 41669,
         db = 0
     )
     return db
