@@ -1,0 +1,31 @@
+@media only screen and (min-device-width : 320px) and (max-device-width: 600px) and (orientation:landscape) {
+    #username,#password{display:block;margin-left: auto;margin-right: auto;max-width:100%;min-width:80%;text-align:center;}
+    textarea{text-align: center; min-width:90%;}
+}
+
+@media only screen and (min-device-width : 601px) and (max-device-width: 1024px) {
+    #username,#password{display:block;margin-left: auto;margin-right: auto;min-width:60%;max-width:70%;text-align:center;}
+    textarea{text-align: center; min-width:85%;}
+}
+
+@media only screen and (min-device-width : 1024px) {
+    #username,#password{display:block;margin-left: auto;margin-right: auto; text-align:center;width:50%}
+    textarea{text-align: center; min-width:80%;}
+}
+
+#dashboard_nav {
+    min-width:450px;
+}
+
+#askqbutton {
+    margin-top:10px;
+}
+
+#mainNav,#dashboardNav {
+    background-color:black;
+}
+
+#pwlabel,#ulabel {
+    font-weight: bold;
+}
+
