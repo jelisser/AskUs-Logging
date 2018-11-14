@@ -24,6 +24,15 @@ app.debug = 'DEBUG' in os.environ
 sockets = Sockets(app)
 redis = redis.from_url(REDIS_URL)
 
+#logging update
+logger = logging.getLogger('chat_log')
+logger.setLevel(logging.DEBUG)
+ch = logging.StreamHandler()
+ch.setLevel(logging.DEBUG)
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(Levelname)s - %(message)s')
+ch.setFormatter(formatter)
+logger.addHandler(ch)
+
 class ChatBackend(object):
     """Interface for registering and updating WebSocket clients."""
 
@@ -78,6 +87,7 @@ def inbox(ws):
 
         #if message:
         app.logger.info(u'Inserting message: {}'.format(message))
+        logger.info(message)
         redis.publish(REDIS_CHAN, message)
 
 @sockets.route('/receive')
