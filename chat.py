@@ -15,15 +15,17 @@ import datetime
 from flask import Flask, render_template,request
 from flask_sockets import Sockets
 from flask.ext.sqlalchemy import SQLAlchemy
-#from flask.ext.heroku import Heroku
+from flask.ext.heroku import Heroku
 
 REDIS_URL = os.environ['REDIS_URL']
 REDIS_CHAN = 'chat'
 
 app = Flask(__name__)
 #app.config['SQLALCHEMY_DATABASE_URI'] = 
-db = SQLAlchemy()
+heroku = Heroku(app)
+db = SQLAlchemy(app)
 app.debug = 'DEBUG' in os.environ
+
 
 sockets = Sockets(app)
 redis = redis.from_url(REDIS_URL)
