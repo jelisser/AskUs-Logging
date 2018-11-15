@@ -11,14 +11,18 @@ import os
 import logging
 import redis
 import gevent
-from flask import Flask, render_template
+import datetime
+from flask import Flask, render_template,request
 from flask_sockets import Sockets
-from flask import g
+from flask.ext.sqlalchemy import SQLAlchemy
+#from flask.ext.heroku import Heroku
 
 REDIS_URL = os.environ['REDIS_URL']
 REDIS_CHAN = 'chat'
 
 app = Flask(__name__)
+#app.config['SQLALCHEMY_DATABASE_URI'] = 
+db = SQLAlchemy(app)
 app.debug = 'DEBUG' in os.environ
 
 sockets = Sockets(app)
@@ -32,6 +36,20 @@ ch.setLevel(logging.DEBUG)
 formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 ch.setFormatter(formatter)
 logger.addHandler(ch)
+
+#Create Database Model
+class LogMessage(db.Model):
+    __tablename__="logmessage"
+    id = db.Column(db.Integer, primary_key=True)
+    messagetext = db.Column(db.String(500), unique=True)
+    submitdate = db.Column(db.DateTime, nullable = False)
+
+    def __init__(self, messagetext, submitdate):
+        self.messagetext=messagetext
+        self.submitdate=submitdate
+
+    def __rep__(self):
+        return '<Message Tex t%r>' %self.messagetext
 
 class ChatBackend(object):
     """Interface for registering and updating WebSocket clients."""
@@ -86,9 +104,12 @@ def inbox(ws):
         message = ws.receive()
 
         #if message:
-        app.logger.info(u'Inserting message: {}'.format(message))
+        #app.logger.info(u'Inserting message: {}'.format(message))
         logger.info(message)
         redis.publish(REDIS_CHAN, message)
+        reg = LogMessage(message,datetime.utcnow())
+        db.session.add(reg)
+        db.session.commit()
 
 @sockets.route('/receive')
 def outbox(ws):
