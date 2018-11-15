@@ -111,7 +111,7 @@ def inbox(ws):
         logger.info(message)
         redis.publish(REDIS_CHAN, message)
 
-        if message is None:
+        if message is not None:
             reg = LogMessage(message)
             db.session.add(reg)
             db.session.commit()
