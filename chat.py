@@ -47,9 +47,9 @@ class LogMessage(db.Model):
     messagetext = db.Column(db.String(500), unique=True)
     submitdate = db.Column(db.DateTime, default=datetime.datetime.utcnow)
 
-    def __init__(self, messagetext, submitdate):
+    def __init__(self, messagetext):
         self.messagetext=messagetext
-        self.submitdate=submitdate
+        #self.submitdate=submitdate
 
     def __rep__(self):
         return '<Message Tex t%r>' %self.messagetext
