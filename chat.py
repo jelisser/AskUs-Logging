@@ -22,6 +22,7 @@ REDIS_CHAN = 'chat'
 
 app = Flask(__name__)
 #app.config['SQLALCHEMY_DATABASE_URI'] = 
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 heroku = Heroku(app)
 db = SQLAlchemy(app)
 app.debug = 'DEBUG' in os.environ
