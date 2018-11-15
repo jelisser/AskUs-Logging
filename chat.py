@@ -110,9 +110,11 @@ def inbox(ws):
         #app.logger.info(u'Inserting message: {}'.format(message))
         logger.info(message)
         redis.publish(REDIS_CHAN, message)
-        reg = LogMessage(message)
-        db.session.add(reg)
-        db.session.commit()
+
+        if message is None:
+            reg = LogMessage(message)
+            db.session.add(reg)
+            db.session.commit()
 
 @sockets.route('/receive')
 def outbox(ws):
