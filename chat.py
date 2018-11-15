@@ -45,7 +45,7 @@ class LogMessage(db.Model):
     __tablename__="logmessage"
     id = db.Column(db.Integer, primary_key=True)
     messagetext = db.Column(db.String(500), unique=True)
-    submitdate = db.Column(db.DateTime, nullable = False)
+    submitdate = db.Column(db.DateTime, default=datetime.datetime.utcnow)
 
     def __init__(self, messagetext, submitdate):
         self.messagetext=messagetext
@@ -110,7 +110,7 @@ def inbox(ws):
         #app.logger.info(u'Inserting message: {}'.format(message))
         logger.info(message)
         redis.publish(REDIS_CHAN, message)
-        reg = LogMessage(message,datetime.utcnow())
+        reg = LogMessage(message)
         db.session.add(reg)
         db.session.commit()
 
