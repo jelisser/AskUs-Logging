@@ -22,7 +22,7 @@ REDIS_CHAN = 'chat'
 
 app = Flask(__name__)
 #app.config['SQLALCHEMY_DATABASE_URI'] = 
-db = SQLAlchemy(app)
+db = SQLAlchemy()
 app.debug = 'DEBUG' in os.environ
 
 sockets = Sockets(app)
