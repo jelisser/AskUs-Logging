@@ -24,11 +24,11 @@
       
 
 
-    <script type="text/javascript" src="static/js/jquery-2.0.3.min.js"></script>
-    <script type="text/javascript" src="static/js/reconnecting-websocket.min.js"></script>
-    <script type="text/javascript" src="static/js/application.js"></script>
-    <script src="static/js/respond.js"></script>
+    <script type="text/javascript" src="{{ url_for('static/js', filename='jquery-2.0.3.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static/js', filename='reconnecting-websocket.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static/js', filename='application.js') }}"></script>
+    <script src="{{ url_for('static/js', filename='respond.js') }}"></script>
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <script src="static/js/bootstrap.min.js"></script>
+    <script src="{{ url_for('static/js', filename='bootstrap.min.js') }}"></script>
   </body>
 </html>
