@@ -21,7 +21,10 @@
                 </div><!-- navbar-nav -->
             </div><!-- navbar-nav collapse -->
         </nav><!-- nav -->
-    
+{%block body%}
+{%if session['logged_in]'%}
+<p>You are already logged in</p>
+{%else%}
     <div class = "container" style = "text-align:center">
         <h1>Librarian Login</h1>
         <p><strong>Note: Only authorized librarians can login.</strong>
@@ -29,7 +32,7 @@
         <br/>If you are a librarian who needs help with this site, contact your local system administrator.
         </p>
         <div class = "container" id = "loginContainer">
-            <form style="text-align:center" id="loginForm" aria-label="Librarian Login Form">
+            <form action="/login" method="POST" style="text-align:center" id="loginForm" aria-label="Librarian Login Form">
             <div class = "form-group">
                 <label for = "username" id = "ulabel">Username</label>
                 <input type = "text" class = "form-control" id = "username" placeholder = "Username" aria-label="Enter Username">
@@ -38,10 +41,12 @@
                 <label for="password" id="pwlabel">Password</label>
                 <input type = "text" class="form-control" id = "password" placeholder = "Password" aria-label="Enter Password">
             </div>
-            <button type="submit" role="button" class="btn btn-info" id = "loginButton">Login</button>
+            <input type="submit" value="Log in">
             </form>
         </div>
     </div>
+{%endif%}
+{%endblock%}
 
 
     
