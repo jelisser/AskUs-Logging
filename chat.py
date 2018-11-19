@@ -137,6 +137,6 @@ def login():
         if request.form['username'] != 'admin' and request.form['password'] != 'secret':
             error = 'Invalid Credentials. Please try again.'
         else:
-            session['logged_in']
+            #session['logged_in']
             return redirect(url_for('admin'))
     return render_template('login.html', error=error)
