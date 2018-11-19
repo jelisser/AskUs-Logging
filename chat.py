@@ -129,5 +129,7 @@ def outbox(ws):
 def admin():
     return render_template('admin.html')
 
-
+@app.route('/login/')
+def login():
+    return render_template('login.html')
 

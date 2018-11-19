@@ -1,0 +1,75 @@
+<DOCTYPE html>
+<html>
+
+    <head>
+    
+        <meta name="viewport" content="width=device-width, inital-scale=1.0">
+	   <title>AskUs Librarian Login</title>
+	   <link href="static/css/bootstrap.min.css" rel="stylesheet">
+	   <link href="static/css/custom.css" rel="stylesheet">
+    
+    </head>
+    
+    <body>
+        
+        <nav class="navbar navbar-inverse navbar-toggleable-sm" id="mainNav">
+      
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#mainMenuCollapse" aria-controls="myContent" aria-expanded="false" aria-label="Toggle Navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+        <a href="/" class="navbar-brand">AskUs</a>
+        <div class="collapse navbar-collapse" id="mainMenuCollapse">
+            <div class="nav-link text-lowercase font-italic" style="color:white;">21st Century Library Chat Service</div>
+            <div class="navbar-nav justify-content-end ml-auto">
+                <div>
+                <button class="btn btn-outline-white active" role="button" type="button" href="/login/" onclick="location.href='\librarian-login.html';">Librarian Login</button>
+                </div>
+            </div><!-- navbar-nav -->
+        </div><!-- navbar-nav collapse -->
+        </nav><!-- nav -->
+        
+            <div class="container" style="text-align:center">
+
+                <h1>Librarian Login</h1>
+
+                <p><strong>Note: Only authorized librarians can login. </strong>
+                    <br />If you are a patron, please return to the <a href="/">homepage</a> for assistance. 
+                    <br />If you are a librarian who needs help with this site, contact your local system administrator.
+                </p>
+                
+            <div class="container" id="loginContainer">
+
+                <form style="text-align: center" id="loginForm" aria-label="Librarian Login Form">
+
+                    <div class="form-group">
+
+                        <label for="username" id="ulabel">Username</label>
+                        <input type="text" class="form-control" id="username" placeholder="Your username" aria-label"Enter username">
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label for="password" id="pwlabel">Password</label>
+                        <input type="password" class="form-control" id="password" placeholder="Your password" aria-label="Enter Password">
+
+                    </div>
+
+                    <button type="submit" role="button" class="btn btn-info" id="loginButton">Login</button>
+
+                </form> <!-- login form -->
+            </div> <!-- container for login form-->
+        
+        
+        </div>
+        
+        
+<script src="static/js/respond.js"></script>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="static/js/bootstrap.min.js"></script>
+        
+    </body>
+    
+    </html>
+</DOCTYPE>
