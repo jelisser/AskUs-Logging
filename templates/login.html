@@ -29,13 +29,14 @@
         </p>
         <div class = "container" id = "loginContainer">
             <form action="" method="post">
-                <input type="text" placeholder="Username" name="username" value="{{request.form.username}}">
+                <input type="text" class="form-control" placeholder="Username" name="username" value="{{request.form.username}}">
                 <br/>
-                <input type="test" placeholder="Password" name="password" value="{{request.form.password}}">
+                <input type="test" class="form-control" placeholder="Password" name="password" value="{{request.form.password}}">
+                </br>
                 <input class="btn btn-defaul" type="submit" value="Login">
             </form>
          {%if error%}
-        <p><strong>Error:</strong>{{error}}
+        <p><strong>Error: </strong>{{error}}
         {%endif%}
         </div>
     </div>
