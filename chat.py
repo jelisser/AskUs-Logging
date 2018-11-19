@@ -12,7 +12,7 @@ import logging
 import redis
 import gevent
 import datetime
-from flask import Flask, render_template,request,flash,session,redirect,abort
+from flask import Flask, render_template,request,flash,session,redirect,abort,url_for
 from flask_sockets import Sockets
 from flask.ext.sqlalchemy import SQLAlchemy
 from flask.ext.heroku import Heroku
@@ -130,16 +130,12 @@ def outbox(ws):
 def admin():
     return render_template('admin.html')
 
-@app.route('/login/',methods=['POST'])
-def do_admin_login():
-    if request.form['password'] =='password' and request.form['username'] == 'admin':
-        session['logged_in'] = True
-        return admin()
-    else:
-        flash('wrong password!')
-        return login()
-
+@app.route('/login/',methods=['GET','POST'])
 def login():
-    return render_template('login.html')
-    
-
+    error = None
+    if request.method == 'POST':
+        if request.form['username'] != 'admin' and request.form['password'] != 'secret':
+            error = 'Invalid Credentials. Please try again.'
+        else:
+            return redirect(url_for('admin'))
+    return render_template('login.html', error=error)
