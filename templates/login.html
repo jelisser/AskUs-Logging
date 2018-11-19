@@ -21,10 +21,6 @@
                 </div><!-- navbar-nav -->
             </div><!-- navbar-nav collapse -->
         </nav><!-- nav -->
-{%block body%}
-{%if session['logged_in]'%}
-<p>You are already logged in</p>
-{%else%}
     <div class = "container" style = "text-align:center">
         <h1>Librarian Login</h1>
         <p><strong>Note: Only authorized librarians can login.</strong>
@@ -45,7 +41,9 @@
             </form>
         </div>
     </div>
-
+    {%if error%}
+        <p><strong>Error:</strong>{{error}}
+    {%endif%}
 
 
     
@@ -53,6 +51,4 @@
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
   </body>
-{%endif%}
-{%endblock%}
 </html>

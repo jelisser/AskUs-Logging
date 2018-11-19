@@ -130,12 +130,7 @@ def outbox(ws):
 def admin():
     return render_template('admin.html')
 
-@app.route('/login/')
-def login():
-    return render_template('login.html')
-
-
-@app.route('/login',methods=['POST'])
+@app.route('/login/',methods=['POST'])
 def do_admin_login():
     if request.form['password'] =='password' and request.form['username'] == 'admin':
         session['logged_in'] = True
@@ -143,5 +138,8 @@ def do_admin_login():
     else:
         flash('wrong password!')
         return login()
+
+def login():
+    return render_template('login.html')
     
 
