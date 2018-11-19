@@ -28,16 +28,16 @@
         <br/>If you are a librarian who needs help with this site, contact your local system administrator.
         </p>
         <div class = "container" id = "loginContainer">
-            <form action="/login" method="POST" style="text-align:center" id="loginForm" aria-label="Librarian Login Form">
+            <form action="" method="post" style="text-align:center" id="loginForm" aria-label="Librarian Login Form">
             <div class = "form-group">
                 <label for = "username" id = "ulabel">Username</label>
-                <input type = "text" class = "form-control" id = "username" placeholder = "Username" aria-label="Enter Username">
+                <input type = "text" class = "form-control" id = "username" placeholder = "Username" aria-label="Enter Username" value="{{request.form.username}}">
             </div>
             <div class = "form-group">
                 <label for="password" id="pwlabel">Password</label>
-                <input type = "text" class="form-control" id = "password" placeholder = "Password" aria-label="Enter Password">
+                <input type = "text" class="form-control" id = "password" placeholder = "Password" aria-label="Enter Password" value="{{request.form.password}}">
             </div>
-            <input type="submit" value="Log in">
+            <input type="submit" value="Login">
             </form>
         </div>
     </div>
