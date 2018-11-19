@@ -125,5 +125,9 @@ def outbox(ws):
         # Context switch while `ChatBackend.start` is running in the background.
         gevent.sleep(0.1)
 
+@app.route('/admin/')
+def admin():
+    return render_template('admin.html')
+
 
 
