@@ -6,69 +6,30 @@
     <link href="static/css/custom.css" rel="stylesheet" media="screen">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
-<body>
-    <nav class="navbar navbar-inverse navbar-toggleable-sm" id="dashboardNav">
+  <body class = "bg-faded">
+    <nav class="navbar navbar-inverse navbar-toggleable-sm" id = "mainNav">
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#mainMenuCollapse" aria-controls="myContent" aria-expanded="false" aria-label="Toggle Navigation">
-        <span class="navbar-toggler-icon"></span>
+      <span class="navbar-toggler-icon"></span>
     </button>
     <a href="index.html" class="navbar-brand">AskUs</a>
-        <div class="collapse navbar-collapse" id="mainMenuCollapse">
-            <div class="nav-link text-lowercase font-italic" style="color:white;">21st Century Library Chat Service</div>
-            <div class="navbar-nav justify-content-end ml-auto">
-                <div style="float:right;" class="btn-group dropdown">
-                    <button class="btn btn-outline-white active dropdown-toggle" role="button" type="button" style="text-align: center" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown">Welcome {Librarian Name}</button>
-                    <!-- Note: button and dropdown menu below are if we want to have option to return to dashboard if signed in -->
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="dashboard.html">Admin Dashboard</a>
-			            <a class="dropdown-item" href="chat.html">Launch Chat</a>
-			            <a class="dropdown-item" href="index.html">Log Out</a>
-                    </div><!--drop down menu-->
-                </div><!-- btn group -->
-            </div><!-- navbar-nav -->
-        </div><!-- navbar-nav collapse -->
-    </nav><!-- nav -->
-        
-    <div class="container-fluid">
-        <h1>Admin Dashboard</h1>
-        <p>Use this page to manage your online reference services, track your impact, and connect with patrons.</p>
-        <div>
-            <ul class="nav nav-tabs" id="dashboard-tab" role="tablist">
-                <li class="nav-item"><a class="nav-link btn-info" href="chat.html">Launch Chat</a></li>
-                <li class="nav-item"><a class="nav-link active" id="librarian-tab" data-toggle="tab" href="#librarian" role="librarians" aria-controls="librarian" aria-selected="true">Librarian Statistics</a></li>
-                <li class="nav-item"><a class="nav-link" id="topic-tab" data-toggle="tab" href="#topics" role="tab" aria-controls="topics" aria-selected="false">Most Popular Chat Topics</a></li>
-                <li class="nav-item">
-                <a class="nav-link" id="time-tab" data-toggle="tab" href="#times" role="tab" aria-controls="times" aria-selected="false">Most Popular Chat Times</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" id="length-tab" data-toggle="tab" href="#length" role="tab" aria-controls="length" aria-selected="false">Length of Chats</a>
-              </li>
-            </ul>
-            </div>
-            <div class="tab-content" id="dashboard-content">
-                <div class="tab-pane fade show active" id="librarian" role="tabpanel" aria-labelledby="librarian-tab">
-                  a...
-                </div>
-                <div class="tab-pane fade" id="topics" role="tabpanel" aria-labelledby="topics-tab">
-                  b...
-                </div>
-                <div class="tab-pane fade" id="times" role="tabpanel" aria-labelledby="times-tab">
-                  c...
-                </div>
-                <div class="tab-pane fade" id="length" role="tabpanel" aria-labelledby="length-tab">
-                    d...
-                </div>
-            </div>
-        
-            
-            
-        </div>
-        
-        
-<script src="static/js/respond.js"></script>
-<script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script src="static/js/bootstrap.min.js"></script>
-        
-    </body>
-    
-    </html>
+            <div class="collapse navbar-collapse" id="mainMenuCollapse">
+                <div class="nav-link text-lowercase font-italic" style="color:white;">21st Century Library Chat Service</div>
+                <div class="navbar-nav justify-content-end ml-auto">
+                    <div>
+                    <button class="btn btn-outline-white active" role="button" type="button" href="librarian-login.html" onclick="location.href='\librarian-login.html';">Librarian Login</button>
+                    </div>
+                </div><!-- navbar-nav -->
+            </div><!-- navbar-nav collapse -->
+        </nav><!-- nav -->
+      
+
+
+    <script type="text/javascript" src="static/js/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="static/js/reconnecting-websocket.min.js"></script>
+    <script type="text/javascript" src="static/js/application.js"></script>
+    <script src="static/js/respond.js"></script>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="static/js/bootstrap.min.js"></script>
+  </body>
+</html>
 </DOCTYPE>
