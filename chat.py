@@ -20,7 +20,7 @@ from flask.ext.heroku import Heroku
 REDIS_URL = os.environ['REDIS_URL']
 REDIS_CHAN = 'chat'
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='/static')
 #app.config['SQLALCHEMY_DATABASE_URI'] = 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 heroku = Heroku(app)
