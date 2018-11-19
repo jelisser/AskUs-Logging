@@ -1,34 +1,4 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>AskUs</title>
-    <link href="{{ url_for('static/css', filename='bootstrap.min.css') }}" rel="stylesheet" media="screen">
-    <link href="{{ url_for('static/css', filename='custom.css') }}" rel="stylesheet" media="screen">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  </head>
-  <body class = "bg-faded">
-    <nav class="navbar navbar-inverse navbar-toggleable-sm" id = "mainNav">
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#mainMenuCollapse" aria-controls="myContent" aria-expanded="false" aria-label="Toggle Navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <a href="/" class="navbar-brand">AskUs</a>
-            <div class="collapse navbar-collapse" id="mainMenuCollapse">
-                <div class="nav-link text-lowercase font-italic" style="color:white;">21st Century Library Chat Service</div>
-                <div class="navbar-nav justify-content-end ml-auto">
-                    <div>
-                    <button class="btn btn-outline-white active" role="button" type="button" href="librarian-login.html" onclick="location.href='/login/';">Librarian Login</button>
-                    </div>
-                </div><!-- navbar-nav -->
-            </div><!-- navbar-nav collapse -->
-        </nav><!-- nav -->
-      
-
-
-    <script type="text/javascript" src="{{ url_for('static/js', filename='jquery-2.0.3.min.js') }}"></script>
-    <script type="text/javascript" src="{{ url_for('static/js', filename='reconnecting-websocket.min.js') }}"></script>
-    <script type="text/javascript" src="{{ url_for('static/js', filename='application.js') }}"></script>
-    <script src="{{ url_for('static/js', filename='respond.js') }}"></script>
-    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <script src="{{ url_for('static/js', filename='bootstrap.min.js') }}"></script>
-  </body>
-</html>
+{%extends "base.html"%}
+{%block content%}
+<h1>TEST</h1>
+{%endblock%}
