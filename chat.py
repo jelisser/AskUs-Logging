@@ -170,9 +170,9 @@ def admin():
     mathcount = len(math)
 
     #Times and Message Frequency
-    hours=[]
-    for i in range(25):
-        hours[i] = len(LogMessage.query.filter(extract('hour',LogMessage.submitdate)==21).all())
+    hours=[1,2,3,4]
+    #for i in range(25):
+        #hours[i] = len(LogMessage.query.filter(extract('hour',LogMessage.submitdate)==21).all())
         
     
     
