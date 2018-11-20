@@ -152,7 +152,7 @@ def logout():
     session['username']='default'
     return render_template('logout.html')
 
-@app.rout('/loggedin/')
+@app.route('/loggedin/')
 def loggedin():
     username=session['username']
     return render_template('loggedin.html',username=username)
