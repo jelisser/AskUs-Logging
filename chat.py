@@ -169,8 +169,9 @@ def admin():
     mathcount = len(math)
 
     #Times and Message Frequency
-    unfilteredrecords = LogMessage.query.filter(LogMessage.submitdate.like('% 21:%')).all()
-    unfilteredrecordscount = len(unfilteredrecords)
+    unfilteredrecords = LogMessage.query.all()
+    unfilteredrecords = unfilteredrecords.submitdate
+    
 
 
 
@@ -195,8 +196,7 @@ def admin():
     technologycount = technologycount,
     historycount = historycount,
     mathcount = mathcount,
-    unfilteredrecords = unfilteredrecords,
-    unfilteredrecordscount = unfilteredrecordscount)
+    unfilteredrecords = unfilteredrecords)
 
 @app.route('/login/',methods=['GET','POST'])
 def login():
