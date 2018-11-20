@@ -37,10 +37,10 @@
                 </li>
             </ul>
         </div>
-        <h1>Librarian Statistics for {{username}}</h1>
+        <h1>Librarian Statistics</h1>
             <div class = "card" align="center" style="display:inline-block;">
                 <div class = "container">
-                    <h2><b>Total System Messages</b></h2>
+                    <h2 display><b>Total System Messages</b></h2>
                     <h2>{{totalrecords}}</h2>
                     </div>
                 </div>
@@ -56,7 +56,41 @@
                     <h2>{{percentcontrib}}%</h2>
                     </div>
             </div>
-                
+        <br/><br/>
+        
+        <h1>Most Popular Chat Topics : Media</h1>
+            <div class = "card" align="center" style="display:inline-block;">
+                <div class = "container">
+                    <h2 display><b>Book Requests</b></h2>
+                    <h2>{{bookcount}}</h2>
+                    </div>
+            </div>
+            <div class = "card" align="center" style="display:inline-block;">
+                <div class = "container">
+                    <h2 display><b>Magazine Requests</b></h2>
+                    <h2>{{magazinecount}}</h2>
+                    </div>
+            </div>
+            <div class = "card" align="center" style="display:inline-block;">
+                <div class = "container">
+                    <h2 display><b>Movie Requests</b></h2>
+                    <h2>{{moviecount}}</h2>
+                    </div>
+            </div>
+            <br/>
+            <div class = "card" align="center" style="display:inline-block;">
+                <div class = "container">
+                    <h2 display><b>Article Requests</b></h2>
+                    <h2>{{articlecount}}</h2>
+                    </div>
+            </div>
+            <div class = "card" align="center" style="display:inline-block;">
+                <div class = "container">
+                    <h2 display><b>Music Requests</b></h2>
+                    <h2>{{musiccount}}</h2>
+                    </div>
+            </div>
+            <br/><br/>
         
     </div>    
     <script src="{{url_for('static', filename='js/respond.js')}}"></script>

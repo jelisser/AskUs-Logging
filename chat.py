@@ -140,12 +140,34 @@ def admin():
     totaluserrecords = len(records)
     percentcontrib = ((totaluserrecords*1.0)/totalrecords)*100
 
+    #Chat Topics
+    #Media - (books, magazines, movies, articles, music)
+    book = LogMessage.query.filter(LogMessage.messagetext.like('%book%')).all()
+    magazine = LogMessage.query.filter(LogMessage.messagetext.like('%magazine%')).all()
+    movie = LogMessage.query.filter(LogMessage.messagetext.like('%movie%')).all()
+    article = LogMessage.query.filter(LogMessage.messagetext.like('%article%')).all()
+    music = LogMessage.query.filter(LogMessage.messagetext.like('%music%')).all()
+    bookcount = len(book)
+    magazinecount = len(magazine)
+    moviecount = len(movie)
+    articlecount = len(article)
+    musiccount = len(music)
+    #
+
+
+
+
     return render_template('admin.html', username=username,
     filtertoken = filtertoken,
     totalrecords = totalrecords,
     records = records,
     totaluserrecords = totaluserrecords,
-    percentcontrib = percentcontrib)
+    percentcontrib = percentcontrib,
+    bookcount = bookcount,
+    magazinecount = magazinecount,
+    moviecount = moviecount,
+    articlecount = articlecount,
+    musiccount = musiccount)
 
 @app.route('/login/',methods=['GET','POST'])
 def login():
