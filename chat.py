@@ -135,17 +135,17 @@ def admin():
 
     filtertoken = '%'+username+'%'
     #Gather all chat records for a given user
-    totalrecords = LogMessage.query(func.count(LogMessage.id))
+    totalrecords = len(LogMessage.query.all())
     records = LogMessage.query.filter(LogMessage.messagetext.like(filtertoken)).all()
     totaluserrecords = len(records)
-    percentcontrib = (totalrecords/totalrecords)*100+'%'
+    #percentcontrib = (totalrecords/totalrecords)*100+'%'
 
     return render_template('admin.html', username=username,
     filtertoken = filtertoken,
     totalrecords = totalrecords,
     records = records,
     totaluserrecords = totaluserrecords,
-    percentcontrib = percentcontrib)
+    #percentcontrib = percentcontrib)
 
 @app.route('/login/',methods=['GET','POST'])
 def login():
