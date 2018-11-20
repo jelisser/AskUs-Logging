@@ -170,7 +170,9 @@ def admin():
     mathcount = len(math)
 
     #Times and Message Frequency
-    reccount = len(LogMessage.query.filter(extract('hour',LogMessage.submitdate)==21).all())
+    hours=[]
+    for i in range(25):
+        hours[i] = len(LogMessage.query.filter(extract('hour',LogMessage.submitdate)==21).all())
         
     
     
@@ -200,7 +202,7 @@ def admin():
     technologycount = technologycount,
     historycount = historycount,
     mathcount = mathcount,
-    reccount = reccount)
+    hours = hours)
 
 @app.route('/login/',methods=['GET','POST'])
 def login():

@@ -138,7 +138,9 @@
             </div>
             <br/><br/>
 
-            {{reccount}}
+            {%for hour in hours%}
+                {{hour}},
+            {% endfor %}
            
             
         
