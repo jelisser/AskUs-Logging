@@ -170,7 +170,7 @@ def admin():
 
     #Times and Message Frequency
     unfilteredrecords = LogMessage.query.all()
-    unfilteredrecords = unfilteredrecords.submitdate
+    
     
 
 
