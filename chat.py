@@ -16,6 +16,7 @@ from flask import Flask, render_template,request,flash,session,redirect,abort,ur
 from flask_sockets import Sockets
 from flask.ext.sqlalchemy import SQLAlchemy
 from flask.ext.heroku import Heroku
+from sqlalchemy import func
 
 
 REDIS_URL = os.environ['REDIS_URL']
@@ -134,8 +135,17 @@ def admin():
 
     filtertoken = '%'+username+'%'
     #Gather all chat records for a given user
+    totalrecords = LogMessage.query(func.count(LogMessage.id))
     records = LogMessage.query.filter(LogMessage.messagetext.like(filtertoken)).all()
-    return render_template('admin.html', username=username, records=records)
+    totaluserrecords = len(records)
+    percentcontrib = (totalrecords/totalrecords)*100+'%'
+
+    return render_template('admin.html', username=username,
+    filtertoken = filtertoken,
+    totalrecords = totalrecords,
+    records = records,
+    totaluserrecords = totaluserrecords,
+    percentcontrib = percentcontrib)
 
 @app.route('/login/',methods=['GET','POST'])
 def login():
