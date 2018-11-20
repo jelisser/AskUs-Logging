@@ -138,14 +138,14 @@ def admin():
     totalrecords = len(LogMessage.query.all())
     records = LogMessage.query.filter(LogMessage.messagetext.like(filtertoken)).all()
     totaluserrecords = len(records)
-    #percentcontrib = (totalrecords/totalrecords)*100+'%'
+    percentcontrib = (totaluserrecords/totalrecords)*100
 
     return render_template('admin.html', username=username,
     filtertoken = filtertoken,
     totalrecords = totalrecords,
     records = records,
-    totaluserrecords = totaluserrecords)
-    #percentcontrib = percentcontrib)
+    totaluserrecords = totaluserrecords,
+    percentcontrib = percentcontrib)
 
 @app.route('/login/',methods=['GET','POST'])
 def login():
