@@ -41,6 +41,7 @@ formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(messag
 ch.setFormatter(formatter)
 logger.addHandler(ch)
 
+app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 #Create Database Model
 class LogMessage(db.Model):
     __tablename__="logmessage"
@@ -138,11 +139,11 @@ def login():
         if request.form['username'] != 'admin' and request.form['password'] != 'secret':
             error = 'Invalid Credentials. Please try again.'
         else:
-            session['logged_in']=True
+            session['username'] = 'admin'
             return redirect(url_for('admin'))
     return render_template('login.html', error=error)
 
 @app.route('/logout/')
 def logout():
-    session.pop('logged_in',NONE)
+    session.pop('username',None)
     return render_template('logout.html')
