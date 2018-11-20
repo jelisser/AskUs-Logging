@@ -15,12 +15,17 @@
             <div class="collapse navbar-collapse" id="mainMenuCollapse">
                 <div class="nav-link text-lowercase font-italic" style="color:white;">21st Century Library Chat Service</div>
                 <div class="navbar-nav justify-content-end ml-auto">
-                    <div>
-                    <button class="btn btn-outline-white active" role="button" type="button" href="librarian-login.html" onclick="location.href='/login/';">Librarian Login</button>
+                    <div style = "float:right;" class = "btn-group dropdown">
+                    <button class = "btn btn-outline-white active dropdown-toggle" role = "button" type = "button" style = "text-align: center" aria-haspopup = "true" aria-expanded = "false" data-toggle = "dropdown">Welcome {{username}}</button>
+                    <div class = "dropdown-menu">
+                        <a class = "dropdown-item" href = "/admin/">Admin Dashboard</a>
+                        <a class = "dropdown-item" href = "/">Launch Chat</a>
+                        <a class = "dropdown-item" href = "/logout/">Log Out</a>
                     </div>
-                </div><!-- navbar-nav -->
-            </div><!-- navbar-nav collapse -->
-        </nav><!-- nav -->
+                    </div>
+                </div>
+            </div>
+    </nav>
     <div class = "container" style = "text-align:center">
         <p>You are already logged in as {{username}}.</p>
         </div>
