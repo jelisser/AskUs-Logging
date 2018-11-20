@@ -134,7 +134,7 @@ def admin():
 
     filtertoken = '%'+username+'%'
     #Gather all chat records for a given user
-    records = LogMessage.query.filter(Note.messagetext.like(filtertoken)).all()
+    records = LogMessage.query.filter(LogMessage.messagetext.like(filtertoken)).all()
     return render_template('admin.html', username=username, records=records)
 
 @app.route('/login/',methods=['GET','POST'])
