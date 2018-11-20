@@ -141,18 +141,34 @@ def admin():
     percentcontrib = ((totaluserrecords*1.0)/totalrecords)*100
 
     #Chat Topics
-    #Media - (books, magazines, movies, articles, music)
+    #Media - (books, magazines, movies, articles, music, library)
     book = LogMessage.query.filter(LogMessage.messagetext.like('%book%')).all()
     magazine = LogMessage.query.filter(LogMessage.messagetext.like('%magazine%')).all()
     movie = LogMessage.query.filter(LogMessage.messagetext.like('%movie%')).all()
     article = LogMessage.query.filter(LogMessage.messagetext.like('%article%')).all()
     music = LogMessage.query.filter(LogMessage.messagetext.like('%music%')).all()
+    library = LogMessage.query.filter(LogMessage.messagetext.like('%library%')).all()
     bookcount = len(book)
     magazinecount = len(magazine)
     moviecount = len(movie)
     articlecount = len(article)
     musiccount = len(music)
-    #
+    librarycount = len(library)
+    #Topics - (fantasy, romance, science fiction, technology, history, math)
+    fantasy = LogMessage.query.filter(LogMessage.messagetext.like('%fantasy%')).all()
+    romance = LogMessage.query.filter(LogMessage.messagetext.like('%romance%')).all()
+    sfiction = LogMessage.query.filter(LogMessage.messagetext.like('%science fiction%')).all()
+    technology = LogMessage.query.filter(LogMessage.messagetext.like('%tech%')).all()
+    history=LogMessage.query.filter(LogMessage.messagetext.like('%history%')).all()
+    math = LogMessage.query.filter(LogMessage.messagetext.like('%math%')).all()
+    fantasycount = len(fantasy)
+    romancecount = len(romance)
+    sfictioncount = len(sfiction)
+    technologycount = len(technology)
+    historycount = len(history)
+    mathcount = len(mathcount)
+
+
 
 
 
@@ -167,7 +183,13 @@ def admin():
     magazinecount = magazinecount,
     moviecount = moviecount,
     articlecount = articlecount,
-    musiccount = musiccount)
+    musiccount = musiccount,
+    fantasycount = fantasycount,
+    romancecount = romancecount,
+    sfictioncount = sfictioncount,
+    technologycount = technologycount,
+    historycount = historycount,
+    mathcount = mathcount)
 
 @app.route('/login/',methods=['GET','POST'])
 def login():
