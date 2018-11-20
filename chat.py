@@ -136,8 +136,11 @@ def admin():
 @app.route('/login/',methods=['GET','POST'])
 def login():
     error = None
+    username = session['username']
     if request.method == 'POST':
-        if request.form['username'] != 'admin' and request.form['password'] != 'secret':
+        if username != 'default':
+            return redirect(url_for('loggedin'))
+        elif request.form['username'] != 'admin' and request.form['password'] != 'secret':
             error = 'Invalid Credentials. Please try again.'
         else:
             session['username'] = 'admin'
@@ -146,5 +149,10 @@ def login():
 
 @app.route('/logout/')
 def logout():
-    session.pop('username',None)
+    session['username']='default'
     return render_template('logout.html')
+
+@app.rout('/loggedin/')
+def loggedin():
+    username=session['username']
+    return render_template('loggedin.html',username=username)
