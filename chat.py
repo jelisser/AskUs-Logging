@@ -170,7 +170,7 @@ def admin():
     mathcount = len(math)
 
     #Times and Message Frequency
-    unfilteredrecords = LogMessage.query.filter(extract('hour',LogMessage.submitdate)==21)
+    unfilteredrecords = LogMessage.query.filter(extract('hour',LogMessage.submitdate)==21).all()
     
     
 
