@@ -137,10 +137,12 @@ def admin():
 def login():
     error = None
     username = session['username']
+    
+    if username != 'default':
+        return redirect(url_for('loggedin'))
+
     if request.method == 'POST':
-        if username != 'default':
-            return redirect(url_for('loggedin'))
-        elif request.form['username'] != 'admin' and request.form['password'] != 'secret':
+        if request.form['username'] != 'admin' and request.form['password'] != 'secret':
             error = 'Invalid Credentials. Please try again.'
         else:
             session['username'] = 'admin'
