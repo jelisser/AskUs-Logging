@@ -144,7 +144,7 @@ def admin():
     filtertoken = filtertoken,
     totalrecords = totalrecords,
     records = records,
-    totaluserrecords = totaluserrecords,
+    totaluserrecords = totaluserrecords)
     #percentcontrib = percentcontrib)
 
 @app.route('/login/',methods=['GET','POST'])
