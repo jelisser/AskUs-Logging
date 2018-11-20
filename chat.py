@@ -170,7 +170,10 @@ def admin():
 
     #Times and Message Frequency
     unfilteredrecords = LogMessage.query.with_entities(LogMessage.submitdate).all()
-   
+    hours=[]
+    for record in unfilteredrecords:
+        hours.append(record.hour)
+
     
     
 
@@ -198,7 +201,8 @@ def admin():
     technologycount = technologycount,
     historycount = historycount,
     mathcount = mathcount,
-    unfilteredrecords = unfilteredrecords)
+    unfilteredrecords = unfilteredrecords,
+    hours = hours)
 
 @app.route('/login/',methods=['GET','POST'])
 def login():
