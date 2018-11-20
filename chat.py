@@ -131,13 +131,17 @@ def outbox(ws):
 @app.route('/admin/')
 def admin():
     username = session['username']
-    return render_template('admin.html', username=username)
+
+    #Gather all chat records for a given user
+    records = logmessage.query.all()
+    
+    return render_template('admin.html', username=username, records=records)
 
 @app.route('/login/',methods=['GET','POST'])
 def login():
     error = None
     username = session['username']
-    
+
     if username != 'default':
         return redirect(url_for('loggedin'))
 
