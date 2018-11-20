@@ -132,10 +132,10 @@ def outbox(ws):
 def admin():
     username = session['username']
 
+    filtertoken = '%'+username+'%'
     #Gather all chat records for a given user
-    records = LogMessage.query.all()
-    logmessage = records.messagetext
-    return render_template('admin.html', username=username, records=records, logmessage=logmessage)
+    records = LogMessage.query.filter(Note.messagetext.like(filtertoken)).all()s
+    return render_template('admin.html', username=username, records=records)
 
 @app.route('/login/',methods=['GET','POST'])
 def login():
