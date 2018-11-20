@@ -176,17 +176,13 @@ def admin():
         hours.append(len(LogMessage.query.filter(extract('hour',LogMessage.submitdate)==i).all()))
     for i in range(25):
         hourslabels.append(i)
-        
     
+    maxhour = max(hours)
+    minhour = min(hours)
+    averagehour = sum(hours)/(len(hours)*1.0)
+    maxhourlabel = hours.index(maxhour)
+    minhourlabel = hours.index(minhour)
     
-    
-
-
-
-
-
-
-
     return render_template('admin.html', username=username,
     filtertoken = filtertoken,
     totalrecords = totalrecords,
@@ -205,8 +201,12 @@ def admin():
     technologycount = technologycount,
     historycount = historycount,
     mathcount = mathcount,
-    hours = hours,
-    hourslabels = hourslabels)
+    maxhour = maxhour,
+    minhour = minhour,
+    averagehour = averagehour,
+    maxhourlabel = maxhourlabel,
+    minhourlabel = minhourlabel
+    )
 
 @app.route('/login/',methods=['GET','POST'])
 def login():
