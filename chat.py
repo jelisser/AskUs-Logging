@@ -16,7 +16,7 @@ from flask import Flask, render_template,request,flash,session,redirect,abort,ur
 from flask_sockets import Sockets
 from flask.ext.sqlalchemy import SQLAlchemy
 from flask.ext.heroku import Heroku
-from sqlalchemy import func
+from sqlalchemy.sql import func
 
 
 REDIS_URL = os.environ['REDIS_URL']
@@ -169,11 +169,7 @@ def admin():
     mathcount = len(math)
 
     #Times and Message Frequency
-    unfilteredrecords = LogMessage.query.with_entities(LogMessage.submitdate).all()
-    hours=[]
-    for record in unfilteredrecords:
-        hours.append(record.hour)
-
+    unfilteredrecords = session.query(func.to_char(LogMessage.submitdate,'%H')
     
     
 
@@ -201,8 +197,7 @@ def admin():
     technologycount = technologycount,
     historycount = historycount,
     mathcount = mathcount,
-    unfilteredrecords = unfilteredrecords,
-    hours = hours)
+    unfilteredrecords = unfilteredrecords)
 
 @app.route('/login/',methods=['GET','POST'])
 def login():
