@@ -133,7 +133,7 @@ def admin():
     username = session['username']
 
     #Gather all chat records for a given user
-    records = logmessage.query.all()
+    records = LogMessage.query.all()
     
     return render_template('admin.html', username=username, records=records)
 
