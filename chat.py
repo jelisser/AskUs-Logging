@@ -169,7 +169,7 @@ def admin():
     mathcount = len(math)
 
     #Times and Message Frequency
-    unfilteredrecords = session.query(func.to_char(LogMessage.submitdate,'%H')
+    unfilteredrecords = session.query(func.to_char(LogMessage.submitdate,'%H'))
     
     
 
