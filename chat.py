@@ -98,7 +98,8 @@ chats.start()
 
 @app.route('/')
 def hello():
-    return render_template('index.html')
+    username=session['username']
+    return render_template('index.html',username=username)
 
 @sockets.route('/submit')
 def inbox(ws):
@@ -129,7 +130,7 @@ def outbox(ws):
 
 @app.route('/admin/')
 def admin():
-    username = 'admin'
+    username = session['username']
     return render_template('admin.html', username=username)
 
 @app.route('/login/',methods=['GET','POST'])

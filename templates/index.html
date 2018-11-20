@@ -7,6 +7,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body class = "bg-faded">
+  {%if username%}
+    <nav class="navbar navbar-inverse navbar-toggleable-sm" id = "mainNav">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#mainMenuCollapse" aria-controls="myContent" aria-expanded="false" aria-label="Toggle Navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a href="/" class="navbar-brand">AskUs</a>
+            <div class="collapse navbar-collapse" id="mainMenuCollapse">
+                <div class="nav-link text-lowercase font-italic" style="color:white;">21st Century Library Chat Service</div>
+                <div class="navbar-nav justify-content-end ml-auto">
+                    <div style = "float:right;" class = "btn-group dropdown">
+                    <button class = "btn btn-outline-white active dropdown-toggle" role = "button" type = "button" style = "text-align: center" aria-haspopup = "true" aria-expanded = "false" data-toggle = "dropdown">Welcome {{username}}</button>
+                    <div class = "dropdown-menu">
+                        <a class = "dropdown-item" href = "/admin/">Admin Dashboard</a>
+                        <a class = "dropdown-item" href = "/">Launch Chat</a>
+                        <a class = "dropdown-item" href = "/logout/">Log Out</a>
+                    </div>
+                    </div>
+                </div>
+            </div>
+    </nav>
+  {%else%}
     <nav class="navbar navbar-inverse navbar-toggleable-sm" id = "mainNav">
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#mainMenuCollapse" aria-controls="myContent" aria-expanded="false" aria-label="Toggle Navigation">
       <span class="navbar-toggler-icon"></span>
@@ -21,6 +42,7 @@
                 </div><!-- navbar-nav -->
             </div><!-- navbar-nav collapse -->
         </nav><!-- nav -->
+  {%endif%}
       <header class="jumbotron jumbotron-fluid bg-faded">
             <div class="container">
                 <h1 class="display1">Welcome to AskUs.</h1>
