@@ -170,8 +170,11 @@ def admin():
 
     #Times and Message Frequency
     unfilteredrecords = LogMessage.query.with_entities(LogMessage.submitdate).all()
+    hours = []
+    for record in unfilteredrecords:
+        hours.append(record.strftime('%H'))
     
-    
+
 
 
 
