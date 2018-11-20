@@ -134,8 +134,8 @@ def admin():
 
     #Gather all chat records for a given user
     records = LogMessage.query.all()
-    
-    return render_template('admin.html', username=username, records=records)
+    logmessage = records.messagetext
+    return render_template('admin.html', username=username, records=records, logmessage=logmessage)
 
 @app.route('/login/',methods=['GET','POST'])
 def login():
