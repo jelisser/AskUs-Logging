@@ -128,7 +128,8 @@ def outbox(ws):
 
 @app.route('/admin/')
 def admin():
-    return render_template('admin.html')
+    username = 'admin'
+    return render_template('admin.html', username=username)
 
 @app.route('/login/',methods=['GET','POST'])
 def login():
@@ -140,3 +141,7 @@ def login():
             #session['logged_in']
             return redirect(url_for('admin'))
     return render_template('login.html', error=error)
+
+@app.route('/logout/')
+def logout():
+    return render_template('logout.html')
