@@ -171,8 +171,11 @@ def admin():
 
     #Times and Message Frequency
     hours=[]
+    hourslabels =[]
     for i in range(25):
-        hours.append(len(LogMessage.query.filter(extract('hour',LogMessage.submitdate)==21).all()))
+        hours.append(len(LogMessage.query.filter(extract('hour',LogMessage.submitdate)==i).all()))
+    for i in range(25):
+        hourslabels.append(i)
         
     
     
@@ -202,7 +205,8 @@ def admin():
     technologycount = technologycount,
     historycount = historycount,
     mathcount = mathcount,
-    hours = hours)
+    hours = hours,
+    hourslabels = hourslabels)
 
 @app.route('/login/',methods=['GET','POST'])
 def login():
