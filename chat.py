@@ -184,6 +184,7 @@ def admin():
     moviecount = moviecount,
     articlecount = articlecount,
     musiccount = musiccount,
+    librarycount = librarycount,
     fantasycount = fantasycount,
     romancecount = romancecount,
     sfictioncount = sfictioncount,
