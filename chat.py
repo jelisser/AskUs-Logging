@@ -16,7 +16,7 @@ from flask import Flask, render_template,request,flash,session,redirect,abort,ur
 from flask_sockets import Sockets
 from flask.ext.sqlalchemy import SQLAlchemy
 from flask.ext.heroku import Heroku
-from sqlalchemy.sql import func
+from sqlalchemy import extract
 
 
 REDIS_URL = os.environ['REDIS_URL']
@@ -56,6 +56,7 @@ class LogMessage(db.Model):
 
     def __rep__(self):
         return '<Message Tex t%r>' %self.messagetext
+    
 
 class ChatBackend(object):
     """Interface for registering and updating WebSocket clients."""
@@ -169,7 +170,7 @@ def admin():
     mathcount = len(math)
 
     #Times and Message Frequency
-    unfilteredrecords = session.query(LogMessage.submitdate.strftime('%H'))
+    unfilteredrecords = LogMessage.query.filter(extract('hour',LogMessage.submitdate)==21)
     
     
 
