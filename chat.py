@@ -166,7 +166,7 @@ def admin():
     sfictioncount = len(sfiction)
     technologycount = len(technology)
     historycount = len(history)
-    mathcount = len(mathcount)
+    mathcount = len(math)
 
 
 
