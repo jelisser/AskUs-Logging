@@ -242,6 +242,8 @@ def logout():
 def loggedin():
     if 'username' not in session:
         return redirect(url_for('login'))
+    elif session['username'] == 'default':
+        return redirect(url_for('login'))
     username=session['username']
     return render_template('loggedin.html',username=username)
 
