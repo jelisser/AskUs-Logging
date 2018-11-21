@@ -103,6 +103,9 @@ chats.start()
 
 @app.route('/')
 def hello():
+    if 'username' not in session:
+        session['username'] = 'default'
+        
     username=session['username']
     return render_template('index.html',username=username)
 
@@ -229,7 +232,7 @@ def login():
 
 @app.route('/logout/')
 def logout():
-    session['username']='default'
+    session.pop('username',None)
     return render_template('logout.html')
 
 @app.route('/loggedin/')
