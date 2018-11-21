@@ -241,3 +241,7 @@ def loggedin():
         session['username'] = 'default'
     username=session['username']
     return render_template('loggedin.html',username=username)
+
+@app.route('/dash/')
+def dash():
+    return render_template('dashboard.html')
