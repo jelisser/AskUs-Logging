@@ -103,8 +103,6 @@ chats.start()
 
 @app.route('/')
 def hello():
-    if session['username'] is NONE:
-        session['username'] = 'default'
     username=session['username']
     return render_template('index.html',username=username)
 
