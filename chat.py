@@ -237,5 +237,7 @@ def logout():
 
 @app.route('/loggedin/')
 def loggedin():
+    if 'username' not in session:
+        session['username'] = 'default'
     username=session['username']
     return render_template('loggedin.html',username=username)
