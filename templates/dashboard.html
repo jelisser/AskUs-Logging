@@ -64,7 +64,24 @@
             </div>
             <div class="tab-content" id="dashboard-content">
                 <div class="tab-pane fade show active" id="librarian" role="tabpanel" aria-labelledby="librarian-tab">
-                  a...
+                  <div class = "card" align="center" style="display:inline-block;">
+                <div class = "container">
+                    <h2 display><b>Total System Messages</b></h2>
+                    <h2>{{totalrecords}}</h2>
+                    </div>
+                </div>
+            <div class = "card" align="center" style="display:inline-block;">
+                <div class = "container">
+                    <h2><b>Total User Messages</b></h2>
+                    <h2>{{totaluserrecords}}</h2>
+                    </div>
+                </div>
+            <div class = "card" align="center" style="display:inline-block;">
+                <div class = "container">
+                    <h2><b>Total Percent Contribution</b></h2>
+                    <h2>{{percentcontrib}}%</h2>
+                    </div>
+            </div>
                 </div>
                 <div class="tab-pane fade" id="topics" role="tabpanel" aria-labelledby="topics-tab">
                   b...
@@ -80,7 +97,7 @@
             
             
         </div>
-        
+
     <script src="{{url_for('static', filename='js/respond.js')}}"></script>
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
