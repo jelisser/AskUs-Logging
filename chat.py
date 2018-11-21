@@ -43,7 +43,7 @@ ch.setFormatter(formatter)
 logger.addHandler(ch)
 
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
-session['username']='default'
+
 
 
 #Create Database Model
@@ -103,6 +103,8 @@ chats.start()
 
 @app.route('/')
 def hello():
+    if session['username'] is NONE:
+        session['username'] = 'default'
     username=session['username']
     return render_template('index.html',username=username)
 
