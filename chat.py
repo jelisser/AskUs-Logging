@@ -217,6 +217,9 @@ def admin():
 @app.route('/login/',methods=['GET','POST'])
 def login():
     error = None
+    if 'username' not in session:
+        session['username'] = 'default'
+
     username = session['username']
 
     if username != 'default':
@@ -242,6 +245,6 @@ def loggedin():
     username=session['username']
     return render_template('loggedin.html',username=username)
 
-@app.route('/dash/')
-def dash():
-    return render_template('dashboard.html')
+# @app.route('/dash/')
+# def dash():
+#     return render_template('dashboard.html')
