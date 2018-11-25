@@ -13,7 +13,7 @@
 @media only screen and (min-device-width : 1024px) {
     #username,#password{display:block;margin-left: auto;margin-right: auto; text-align:center;width:50%}
     #textarea{text-align: center; min-width:80%;}
-    
+    #input-text{min-width:600px;}
 }
 
 #dashboard_nav {
@@ -32,7 +32,7 @@
     font-weight: bold;
 }
 
-#input-text{min-width: 600px;}
+
 
 #error{color:red;}
 
