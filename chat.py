@@ -138,7 +138,13 @@ def outbox(ws):
 
 @app.route('/admin/')
 def admin():
+    if 'username' not in session:
+        session['username'] = 'default'
+
     username = session['username']
+
+    if username != 'default':
+        return redirect(url_for('login'))
 
     filtertoken = '%'+username+'%'
     #Gather all chat records for a given user
