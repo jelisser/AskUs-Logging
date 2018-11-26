@@ -143,7 +143,7 @@ def admin():
 
     username = session['username']
 
-    if username != 'default':
+    if username == 'default':
         return redirect(url_for('login'))
 
     filtertoken = '%'+username+'%'
