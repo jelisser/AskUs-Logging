@@ -1,12 +1,3 @@
-# -*- coding: utf-8 -*-
-
-"""
-Chat Server
-===========
-
-This simple application uses WebSockets to run a primitive chat server.
-"""
-
 import os
 import logging
 import redis
@@ -62,7 +53,6 @@ class LogMessage(db.Model):
     
 
 class ChatBackend(object):
-    """Interface for registering and updating WebSocket clients."""
 
     def __init__(self):
         self.clients = list()
@@ -77,25 +67,21 @@ class ChatBackend(object):
                 yield data
 
     def register(self, client):
-        """Register a WebSocket connection for Redis updates."""
         self.clients.append(client)
 
     def send(self, client, data):
-        """Send given data to the registered client.
-        Automatically discards invalid connections."""
         try:
             client.send(data)
         except Exception:
             self.clients.remove(client)
 
     def run(self):
-        """Listens for new messages in Redis, and sends them to clients."""
         for data in self.__iter_data():
             for client in self.clients:
                 gevent.spawn(self.send, client, data)
 
     def start(self):
-        """Maintains Redis subscription in the background."""
+        
         gevent.spawn(self.run)
 
 chats = ChatBackend()
@@ -111,7 +97,7 @@ def hello():
 
 @sockets.route('/submit')
 def inbox(ws):
-    """Receives incoming chat messages, inserts them into Redis."""
+    
     while not ws.closed:
         # Sleep to prevent *constant* context-switches.
         gevent.sleep(0.1)
@@ -129,7 +115,7 @@ def inbox(ws):
 
 @sockets.route('/receive')
 def outbox(ws):
-    """Sends outgoing chat messages, via `ChatBackend`."""
+    
     chats.register(ws)
 
     while not ws.closed:
