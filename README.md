@@ -68,7 +68,7 @@ $ heroku addons:create heroku-redis:hobby-dev
 ```
 - Deploy a PostgreSQL resource
 ```
-$$ heroku addons:create heroku-postgresql:hobby-dev
+$ heroku addons:create heroku-postgresql:hobby-dev
 ```
 - Update code locally and push to the production application
 ```
