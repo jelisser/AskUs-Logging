@@ -84,7 +84,7 @@ This application was tested through out development based on 5 use cases:
 - Security paths
 
 ## Credits
-This application was created by Ben Ruedinger and Juliana Lisser.  The concept of this application was created by Ben through his current work at the university library where he a real need for a simple extensible application that libraries could leverage.
+This application was created by Ben Ruedinger and Juliana Lisser.  The concept of this application was created by Ben through his current work at the university library where he saw a real need for a simple extensible application that libraries could leverage.
 
 Project management and interface design was handled by Ben.
 Systems architecture, deployment and version control was handeled by Juliana.
